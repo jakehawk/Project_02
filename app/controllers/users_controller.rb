@@ -15,6 +15,7 @@ class UsersController < ApplicationController
     @user.username.downcase!
 
     if @user.save
+    	session[:user_id] = @user.id.to_s
       flash[:notice] = "Account created successfully!"
       redirect_to root_path
     else
